@@ -13,3 +13,6 @@ From Klickpin.com-*
 # Env / secrets
 .env
 .env.*
+
+# Local tooling (cloudflared tunnel binary)
+tools/
