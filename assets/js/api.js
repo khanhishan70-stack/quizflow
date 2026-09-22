@@ -584,7 +584,7 @@
         });
       }
       var user = {
-        id: db.nextUserId++,
+        id: Date.now(),
         name: name.trim(),
         email: email.trim().toLowerCase(),
         password: password,
