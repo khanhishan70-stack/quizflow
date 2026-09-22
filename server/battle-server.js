@@ -332,7 +332,11 @@ function quickMatch(ws, msg) {
     if (qid !== playerId && entry.subjectId === subjectId) {
       // Match found!
       matchQueue.delete(qid);
-      createBattle(entry, { id: playerId, name, ws }, subjectId);
+      createBattle(
+        { id: entry.playerId, name: entry.name, ws: entry.ws },
+        { id: playerId, name, ws },
+        subjectId
+      );
       return;
     }
   }
@@ -344,6 +348,33 @@ function quickMatch(ws, msg) {
 
 function cancelSearch(playerId) {
   matchQueue.delete(playerId);
+}
+
+// ============================================================
+// Create battle for two quick-match players
+// ============================================================
+
+function createBattle(p1, p2, subjectId) {
+  const battleId = nextBattleId++;
+
+  const room = new BattleRoom(battleId, null, subjectId, p1);
+  room.player2 = { id: p2.id, name: p2.name, ws: p2.ws, score: 0, ready: false, hasAnswered: false, currentAnswer: -1, answerTimestamp: 0 };
+  room.state = 'READY';
+
+  // Load questions from DB
+  room.questions = loadQuestions(subjectId, TOTAL_QUESTIONS);
+  if (room.questions.length === 0) {
+    room.questions = generateMockQuestions(subjectId);
+  }
+
+  battles.set(battleId, room);
+  playerBattle.set(p1.id, battleId);
+  playerBattle.set(p2.id, battleId);
+
+  send(p1.ws, { type: 'MATCH_FOUND', battleId, opponentName: p2.name, subjectName: room.subjectName });
+  send(p2.ws, { type: 'MATCH_FOUND', battleId, opponentName: p1.name, subjectName: room.subjectName });
+
+  console.log(`Match ${battleId}: ${p1.name} vs ${p2.name} (${room.subjectName})`);
 }
 
 // ============================================================
@@ -465,6 +496,10 @@ function playerReady(playerId) {
     room.state = 'STARTING';
     room.currentQuestion = 0;
 
+    // Tell lobby clients to open the battle game page
+    send(room.player1.ws, { type: 'BATTLE_START', battleId: room.battleId });
+    send(room.player2.ws, { type: 'BATTLE_START', battleId: room.battleId });
+
     // Send battle info with countdown
     const info1 = {
       type: 'BATTLE_INFO',
@@ -484,11 +519,11 @@ function playerReady(playerId) {
 
     console.log(`Battle ${room.battleId} starting: ${room.player1.name} vs ${room.player2.name}`);
 
-    // Send first question after 3s countdown
+    // Send first question after countdown
     setTimeout(() => {
       room.currentQuestion = 0;
       sendQuestion(room);
-    }, 3500);
+    }, 4500);
   }
 }
 
@@ -587,6 +622,9 @@ function submitAnswer(msg) {
 // ============================================================
 
 function handleDisconnect(playerId) {
+  // Remove from search queue if they disconnect while searching
+  matchQueue.delete(playerId);
+
   const battleId = playerBattle.get(playerId);
   if (!battleId) return;
 

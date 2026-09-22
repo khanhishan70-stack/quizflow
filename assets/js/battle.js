@@ -171,6 +171,13 @@
     document.getElementById('roomCode').textContent = code;
     document.getElementById('roomP1Name').textContent = session.name;
     roomCode = code;
+    iAmReady = false;
+    oppReady = false;
+    var rb = document.getElementById('roomReadyBtn');
+    rb.textContent = 'READY';
+    rb.disabled = false;
+    document.getElementById('roomP1Ready').classList.remove('active');
+    document.getElementById('roomP2Ready').classList.remove('active');
   }
 
   document.getElementById('copyCodeBtn').addEventListener('click', function () {
@@ -193,8 +200,6 @@
       '<span>' + (msg.opponentName || 'Opponent') + '</span>' +
       '<span class="room-p-status">●</span>';
   }
-
-  /* ---------- Join Room ---------- */
   document.getElementById('joinRoomBtn').addEventListener('click', function () {
     showView('join');
   });
@@ -237,10 +242,20 @@
     send({ type: 'PLAYER_READY', playerId: session.id });
   });
 
+  document.getElementById('roomReadyBtn').addEventListener('click', function () {
+    if (iAmReady) return;
+    iAmReady = true;
+    document.getElementById('roomReadyBtn').textContent = 'READY ✓';
+    document.getElementById('roomReadyBtn').disabled = true;
+    document.getElementById('roomP1Ready').classList.add('active');
+    send({ type: 'PLAYER_READY', playerId: session.id });
+  });
+
   function handleReady(msg) {
     if (msg.playerId !== session.id) {
       oppReady = true;
       document.getElementById('p2Ready').classList.add('active');
+      document.getElementById('roomP2Ready').classList.add('active');
     }
   }
 
