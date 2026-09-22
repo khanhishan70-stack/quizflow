@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — QuizFlow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C5CFC'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EQ%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/quizflow.css?v=9" />
+  <link rel="stylesheet" href="assets/css/profile.css?v=1" />
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-mark">Q</span>
+        QuizFlow
+      </a>
+
+      <nav aria-label="Sidebar">
+        <ul class="side-menu">
+          <li><a class="side-link" href="dashboard.html">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+            Dashboard</a></li>
+          <li><a class="side-link" href="subjects.html">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Subjects</a></li>
+          <li><a class="side-link" href="battle.html">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Quiz Battle</a></li>
+          <li><a class="side-link" href="dashboard.html#quizzes">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            My Quizzes</a></li>
+          <li><a class="side-link" href="dashboard.html#quizzes">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            Discover</a></li>
+          <li><a class="side-link" href="result.html?mode=list">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            Results</a></li>
+          <li><a class="side-link" href="leaderboard.html">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21 1.18.54 2.03 2.03 2.03 3.79"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            Leaderboard</a></li>
+          <li><a class="side-link" href="#">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21 1.18.54 2.03 2.03 2.03 3.79"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            Achievements</a></li>
+          <li><a class="side-link active" href="profile.html">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Profile</a></li>
+          <li><a class="side-link" href="#">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings</a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-foot">
+        <span class="nav-avatar" id="sideAvatar">AK</span>
+        <div class="side-user">
+          <div class="name" id="sideName">Student</div>
+          <div class="role">Student</div>
+        </div>
+        <button type="button" class="nav-icon-btn" id="logoutBtn" title="Logout" aria-label="Logout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="mobile-top">
+        <button type="button" class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a class="nav-brand" href="index.html"><span class="brand-mark">Q</span> QuizFlow</a>
+      </div>
+
+      <!-- Profile header -->
+      <section class="profile-section glass-card">
+        <span class="eyebrow">PROFILE</span>
+        <p class="profile-sub">Your learning identity</p>
+
+        <div class="profile-card glass-card">
+          <div class="profile-left">
+            <div class="avatar-upload" id="avatarUpload" title="Click to upload photo">
+              <div class="avatar-ring">
+                <div class="avatar-img" id="avatarImg">
+                  <svg class="avatar-placeholder" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="avatar-overlay">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  <span>Upload</span>
+                </div>
+              </div>
+              <input type="file" id="avatarFile" accept="image/*" hidden />
+            </div>
+          </div>
+
+          <div class="profile-right">
+            <h2 class="profile-name" id="profileName">Student</h2>
+            <p class="profile-role" id="profileRole">IT Diploma Student</p>
+            <span class="profile-status"><span class="status-dot"></span> Active</span>
+            <button type="button" class="btn btn-ghost btn-sm profile-edit-btn" id="editProfileBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+              Edit Profile
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats-grid">
+        <div class="stat-card glass-card">
+          <span class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M12 12v6"/></svg>
+          </span>
+          <div><strong><span class="counter" id="statCompleted">0</span></strong><span class="stat-label">Quizzes</span></div>
+        </div>
+        <div class="stat-card glass-card">
+          <span class="stat-icon cy">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+          <div><strong><span class="counter" id="statAvg">0</span>%</strong><span class="stat-label">Avg Score</span></div>
+        </div>
+        <div class="stat-card glass-card">
+          <span class="stat-icon blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </span>
+          <div><strong><span class="counter" id="statStreak">0</span></strong><span class="stat-label">Day Streak</span></div>
+        </div>
+        <div class="stat-card glass-card">
+          <span class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </span>
+          <div><strong><span class="counter" id="statPoints">0</span></strong><span class="stat-label">XP Points</span></div>
+        </div>
+      </section>
+
+      <!-- Progress & Achievements -->
+      <div class="profile-duo">
+        <section class="progress-card glass-card">
+          <h3>LEARNING PROGRESS</h3>
+          <div class="progress-list" id="progressList"></div>
+        </section>
+
+        <section class="achievements-card glass-card">
+          <h3>ACHIEVEMENTS</h3>
+          <div class="achievement-list" id="achievementList"></div>
+        </section>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="section-head">
+        <h2>Recent Activity</h2>
+      </div>
+      <section class="recent-list" id="recentList">
+        <div class="empty"><div class="empty-ic">📡</div>Loading activity…</div>
+      </section>
+
+      <!-- Battle History -->
+      <div class="section-head">
+        <h2>Battle History</h2>
+        <a class="link-arrow" href="battle.html">Battle Lobby
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <section class="battle-history" id="battleHistory">
+        <div class="empty"><div class="empty-ic">⚡</div>No battles yet — start your first 1v1!</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/background.js?v=9"></script>
+  <script src="assets/js/api.js?v=9"></script>
+  <script src="assets/js/auth.js?v=9"></script>
+  <script src="assets/js/profile.js?v=1"></script>
+  <script src="assets/js/battle-history.js?v=1"></script>
+</body>
+</html>

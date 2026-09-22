@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subjects — QuizFlow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C5CFC'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EQ%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/quizflow.css?v=8" />
+  <link rel="stylesheet" href="assets/css/landing.css?v=8" />
+  <link rel="stylesheet" href="assets/css/subjects.css?v=8" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-mark">Q</span>
+        QuizFlow
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="subjects.html">Subjects</a>
+        <a class="nav-link" href="battle.html">Quiz Battle</a>
+        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+        <a class="nav-link" href="dashboard.html">Results</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="nav-avatar hidden" id="navAvatar" href="dashboard.html" aria-label="Profile"></a>
+        <a class="btn btn-primary btn-sm" id="navCta" href="login.html">Login</a>
+        <button type="button" class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="landing subj-wrap">
+    <div class="page-header subj-head">
+      <div>
+        <span class="eyebrow">Pick a Subject</span>
+        <h1>Choose Your Subject</h1>
+        <p class="page-sub">Select a subject to begin a timed quiz. Every attempt is recorded and added to your progress.</p>
+      </div>
+    </div>
+
+    <div class="subj-grid quiz-grid" id="subjGrid">
+      <div class="empty"><div class="empty-ic">🛰️</div>Loading subjects…</div>
+    </div>
+  </main>
+
+  <footer class="landing-footer">
+    <div>
+      <a class="nav-brand" href="index.html"><span class="brand-mark">Q</span> QuizFlow</a>
+      <p class="tagline mt-1">The future of learning · Powered by a C++ OOP engine</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="subjects.html">Subjects</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </footer>
+
+  <script src="assets/js/background.js?v=8"></script>
+  <script src="assets/js/api.js?v=8"></script>
+  <script src="assets/js/auth.js?v=8"></script>
+  <script src="assets/js/subjects.js?v=8"></script>
+</body>
+</html>

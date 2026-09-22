@@ -1,0 +1,235 @@
+/* ============================================================
+   QuizFlow — Profile page
+   ============================================================ */
+
+/* ---------- Profile section ---------- */
+.profile-section {
+  padding: 1.8rem 2rem 2rem;
+  margin-bottom: 1.6rem;
+  animation: fade-up .5s var(--ease) both;
+}
+.profile-section .eyebrow {
+  font-size: .68rem;
+  letter-spacing: .14em;
+  color: var(--primary-soft);
+  font-weight: 700;
+  margin-bottom: .2rem;
+}
+.profile-sub {
+  font-size: .82rem;
+  color: var(--text-500);
+  margin-bottom: 1.4rem;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.8rem 2rem;
+}
+
+/* --- Avatar --- */
+.profile-left { flex: none; }
+.avatar-upload { cursor: pointer; position: relative; }
+.avatar-ring {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--primary), var(--cyan));
+  position: relative;
+  transition: box-shadow var(--t-fast) var(--ease);
+}
+.avatar-upload:hover .avatar-ring {
+  box-shadow: 0 0 24px rgba(124, 92, 252, .4);
+}
+.avatar-img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, .9);
+  border: 2px solid rgba(15, 23, 42, .8);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.avatar-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.avatar-placeholder { color: var(--text-500); }
+
+.avatar-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(124, 92, 252, .7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+.avatar-upload:hover .avatar-overlay { opacity: 1; }
+
+/* --- Profile info --- */
+.profile-right { flex: 1; }
+.profile-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 .2rem;
+  color: #fff;
+}
+.profile-role {
+  font-size: .85rem;
+  color: var(--text-400);
+  margin: 0 0 .5rem;
+}
+.profile-status {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .76rem;
+  color: var(--success);
+  margin-bottom: .8rem;
+}
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 6px rgba(52, 211, 153, .5);
+}
+.profile-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+/* ---------- Stats ---------- */
+.stats-grid { margin-bottom: 1.4rem; }
+
+/* ---------- Progress & Achievements ---------- */
+.profile-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+.progress-card, .achievements-card {
+  padding: 1.5rem 1.6rem;
+  animation: fade-up .6s var(--ease) both;
+}
+.progress-card h3, .achievements-card h3 {
+  font-size: .72rem;
+  letter-spacing: .12em;
+  color: var(--text-400);
+  font-weight: 700;
+  margin: 0 0 1.2rem;
+}
+
+.progress-list { display: flex; flex-direction: column; gap: 1.1rem; }
+.prog-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .85rem;
+  margin-bottom: .45rem;
+}
+.prog-row span { color: var(--text-300); }
+.prog-row b { color: var(--text-100); font-family: var(--font-display); }
+
+.achievement-list { display: flex; flex-direction: column; gap: 1rem; }
+.achieve-item {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+.achieve-ic {
+  width: 42px; height: 42px;
+  flex: none;
+  display: grid; place-items: center;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  background: rgba(124, 92, 252, .1);
+  border: 1px solid var(--glass-border);
+}
+.achieve-item div { display: flex; flex-direction: column; gap: .15rem; }
+.achieve-item b { font-size: .88rem; color: var(--text-100); font-weight: 600; }
+.achieve-item span { font-size: .74rem; color: var(--text-500); }
+
+/* ---------- Recent Activity ---------- */
+.recent-list { display: flex; flex-direction: column; gap: .8rem; }
+.recent-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.recent-row:hover { border-color: rgba(124, 92, 252, 0.4); box-shadow: var(--shadow-md); }
+.recent-ic {
+  width: 42px; height: 42px;
+  flex: none;
+  display: grid; place-items: center;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  background: rgba(124, 92, 252, 0.12);
+  border: 1px solid var(--glass-border);
+}
+.recent-main { flex: 1; min-width: 0; }
+.recent-main b { display: block; color: var(--text-100); font-weight: 600; font-size: .92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.recent-main span { font-size: .78rem; color: var(--text-500); }
+.recent-pct { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+.recent-pct.good { color: var(--success); text-shadow: 0 0 12px rgba(52, 211, 153, 0.4); }
+.recent-pct.mid { color: var(--warning); }
+.recent-pct.low { color: var(--danger); }
+
+/* ---------- Empty ---------- */
+.empty-sm {
+  font-size: .82rem;
+  color: var(--text-500);
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+/* ---------- Battle History ---------- */
+.battle-history {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  margin-bottom: 2rem;
+}
+
+/* ---------- Mobile ---------- */
+.mobile-top {
+  display: none;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1.4rem;
+}
+.mobile-top .nav-burger { display: grid; }
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 75;
+  background: rgba(3, 6, 20, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-med) var(--ease);
+}
+.sidebar-backdrop.show { opacity: 1; pointer-events: auto; }
+
+@media (max-width: 1000px) {
+  .mobile-top { display: flex; }
+  .profile-card { flex-direction: column; text-align: center; }
+  .profile-duo { grid-template-columns: 1fr; }
+}

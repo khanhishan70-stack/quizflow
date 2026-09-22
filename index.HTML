@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizFlow — The Future of Learning</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C5CFC'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EQ%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/quizflow.css?v=8" />
+  <link rel="stylesheet" href="assets/css/landing.css?v=8" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-mark">Q</span>
+        QuizFlow
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="subjects.html">Subjects</a>
+        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+        <a class="nav-link" href="dashboard.html">Results</a>
+        <a class="nav-link" href="#about">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="nav-icon-btn" aria-label="Notifications" title="Notifications">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="nav-dot"></span>
+        </button>
+        <a class="nav-avatar hidden" id="navAvatar" href="dashboard.html" aria-label="Profile">AK</a>
+        <a class="btn btn-primary btn-sm" id="navCta" href="login.html">Login</a>
+        <button type="button" class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="landing">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow">The Future of Learning — 2030</span>
+        <h1>Learn Smarter.<br /><span class="grad">Challenge Yourself.</span></h1>
+        <p class="lead">
+          An intelligent quiz platform designed to help students practice, compete,
+          and improve their knowledge — powered by a modern OOP engine.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="subjects.html" id="heroExplore">
+            Explore Subjects
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#how">How It Works</a>
+        </div>
+
+        <div class="hero-badges">
+          <span class="badge badge-purple">⚡ Instant Results</span>
+          <span class="badge badge-cyan">🧠 5 Subjects</span>
+          <span class="badge badge-green">📈 Track Progress</span>
+        </div>
+      </div>
+
+      <!-- Holographic quiz visual -->
+      <div class="holo-wrap" aria-hidden="true">
+        <div class="holo-glow"></div>
+
+        <div class="holo-card glass-card gborder">
+          <div class="holo-top">
+            <span class="holo-badge">⚡ Daily Challenge</span>
+            <span class="holo-qcount">04 / 10</span>
+          </div>
+          <h3 class="holo-title">C++ Object Oriented Programming</h3>
+
+          <div class="holo-progress-label">
+            <span>Progress</span>
+            <b>40%</b>
+          </div>
+          <div class="progress-track holo-progress">
+            <div class="progress-bar" style="width: 40%"></div>
+          </div>
+
+          <div class="holo-timer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            08:42
+          </div>
+
+          <div class="holo-options">
+            <div class="holo-option"><span class="let">A</span> Encapsulation</div>
+            <div class="holo-option sel">
+              <span class="let">B</span> Inheritance
+              <svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="holo-option"><span class="let">C</span> Abstraction</div>
+            <div class="holo-option"><span class="let">D</span> Polymorphism</div>
+          </div>
+        </div>
+
+        <div class="holo-chip c1">
+          <span class="chip-ic">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          </span>
+          86% Average Score
+        </div>
+        <div class="holo-chip c2">
+          <span class="chip-ic">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+          </span>
+          +12% Improvement
+        </div>
+        <div class="holo-chip c3">
+          <span class="chip-ic">🔥</span>
+          7 Day Streak
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Numbers</span>
+          <h2>Trusted by students worldwide</h2>
+        </div>
+      </div>
+      <div class="stats-grid" id="statGrid">
+        <div class="stat-card glass-card">
+          <span class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <div><strong><span class="counter" data-count="1200">0</span>+</strong><span class="stat-label">Students</span></div>
+        </div>
+        <div class="stat-card glass-card">
+          <span class="stat-icon cy">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M12 12v6"/></svg>
+          </span>
+          <div><strong><span class="counter" data-count="24">0</span></strong><span class="stat-label">Active Quizzes</span></div>
+        </div>
+        <div class="stat-card glass-card">
+          <span class="stat-icon blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <div><strong><span class="counter" data-count="5800">0</span>+</strong><span class="stat-label">Quiz Attempts</span></div>
+        </div>
+        <div class="stat-card glass-card">
+          <span class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </span>
+          <div><strong><span class="counter" data-count="92">0</span>%</strong><span class="stat-label">Average Success Rate</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-section" id="how">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">How It Works</span>
+          <h2>Three steps to mastery</h2>
+        </div>
+      </div>
+      <div class="how-grid">
+        <div class="how-card glass-card">
+          <span class="how-num">01</span>
+          <h3>Pick a subject</h3>
+          <p>Choose from curated quizzes across programming, web, databases, mathematics and more.</p>
+        </div>
+        <div class="how-card glass-card">
+          <span class="how-num">02</span>
+          <h3>Answer questions</h3>
+          <p>Work through a timed, focused question set with instant, well-explained feedback.</p>
+        </div>
+        <div class="how-card glass-card">
+          <span class="how-num">03</span>
+          <h3>Track your growth</h3>
+          <p>Review detailed results, discover strengths and weaknesses, and climb the leaderboard.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer" id="about">
+      <div>
+        <a class="nav-brand" href="index.html"><span class="brand-mark">Q</span> QuizFlow</a>
+        <p class="tagline mt-1">The future of learning · Powered by a C++ OOP engine</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#home">Home</a>
+        <a href="subjects.html">Subjects</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </footer>
+  </main>
+
+  <script src="assets/js/background.js?v=8"></script>
+  <script src="assets/js/api.js?v=8"></script>
+  <script src="assets/js/auth.js?v=8"></script>
+  <script src="assets/js/landing.js?v=8"></script>
+</body>
+</html>

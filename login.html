@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in — QuizFlow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C5CFC'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EQ%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/quizflow.css?v=8" />
+  <link rel="stylesheet" href="assets/css/auth.css?v=8" />
+</head>
+<body>
+
+  <main class="auth-shell">
+
+    <!-- Branding panel -->
+    <aside class="auth-brand">
+      <video class="auth-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="assets/videos/login-bg.mp4?v=8" type="video/mp4" />
+      </video>
+
+      <a class="brand" href="index.html">
+        <span class="brand-mark">Q</span>
+        QuizFlow
+      </a>
+
+      <div class="auth-brand-mid">
+        <h1>Smart Learning.<br /><span class="grad">Better Tomorrow.</span></h1>
+        <p>Your intelligent quiz platform for practice, competition and measurable growth.</p>
+
+        <div class="auth-holo" aria-hidden="true">
+          <div class="holo-ring r1"><span class="holo-dot"></span></div>
+          <div class="holo-ring r2"><span class="holo-dot"></span></div>
+          <div class="holo-ring r3"><span class="holo-dot"></span></div>
+          <div class="holo-core">🧠</div>
+        </div>
+      </div>
+
+      <p class="auth-brand-foot">The future of learning <span class="dot">·</span> Powered by a C++ OOP engine</p>
+    </aside>
+
+    <!-- Form panel -->
+    <section class="auth-form">
+      <div class="auth-card glass-card gborder">
+        <h2>Welcome back</h2>
+        <p class="subtitle">Sign in to continue to your dashboard</p>
+
+        <div class="alert alert-success" id="createdAlert" role="alert">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Account created! Please sign in to continue.</span>
+        </div>
+        <div class="alert alert-error" id="loginAlert" role="alert">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="loginAlertText"></span>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field" data-field="email">
+            <label for="email">Email address</label>
+            <div class="input-wrap">
+              <span class="field-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              </span>
+              <input class="input input-icon" type="email" id="email" name="email" placeholder="you@student.edu" autocomplete="email" required />
+            </div>
+            <p class="error-msg"><span></span></p>
+          </div>
+
+          <div class="field" data-field="password">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <span class="field-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input class="input input-icon" type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" minlength="6" required />
+              <button type="button" class="toggle-password" aria-label="Show password">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c6.5 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3.5 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+              </button>
+            </div>
+            <p class="error-msg"><span></span></p>
+          </div>
+
+          <div class="form-actions">
+            <label class="check">
+              <input type="checkbox" id="remember" checked />
+              <span>Remember me</span>
+            </label>
+            <a class="forgot" href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg auth-submit" id="loginBtn">
+            <span class="btn-label">Sign In</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span class="spinner" style="display:none"></span>
+          </button>
+        </form>
+
+        <div class="demo-box">
+          Demo student: <code>demo@quizflow.com</code> / <code>quizflow</code><br />
+          Admin: <code>admin@quizflow.com</code> / <code>admin123</code>
+        </div>
+
+        <p class="auth-foot">
+          New to QuizFlow?
+          <a href="register.html">Create an account</a>
+        </p>
+
+        <a class="admin-link" href="admin.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Sign in as administrator
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/background.js?v=8"></script>
+  <script src="assets/js/api.js?v=8"></script>
+  <script src="assets/js/auth.js?v=8"></script>
+  <script src="assets/js/login.js?v=8"></script>
+</body>
+</html>

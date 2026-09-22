@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard — QuizFlow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C5CFC'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EQ%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/quizflow.css?v=8" />
+  <link rel="stylesheet" href="assets/css/leaderboard.css?v=8" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" id="brandLink" href="#">
+        <span class="brand-mark">Q</span>
+        QuizFlow
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link" href="battle.html">Quiz Battle</a>
+        <a class="nav-link active" href="leaderboard.html">Leaderboard</a>
+        <a class="nav-link" href="result.html?mode=list">Results</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-avatar hidden" id="navAvatar" href="#" aria-label="Profile"></a>
+        <a class="btn btn-primary btn-sm" id="navCta" href="login.html">Login</a>
+        <button type="button" class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="lb-wrap">
+    <div class="page-head">
+      <div class="eyebrow">QuizFlow · Rankings</div>
+      <h1 class="page-title">Leaderboard</h1>
+      <p class="page-sub">Top performers ranked by total points across all quizzes.</p>
+    </div>
+
+    <div class="lb-loading" id="lbLoading">
+      <div class="spinner" style="margin:0 auto; border-color: rgba(124,92,252,.3); border-top-color:#fff;"></div>
+      <p class="mt-2">Loading rankings…</p>
+    </div>
+
+    <div class="hidden" id="lbContent">
+      <div class="podium" id="podium"></div>
+      <div class="glass-card lb-card">
+        <div class="lb-head">
+          <div class="col-rank">Rank</div>
+          <div class="col-name">Student</div>
+          <div class="col-score">Avg Score</div>
+          <div class="col-quizzes">Quizzes</div>
+          <div class="col-points">Points</div>
+        </div>
+        <div id="lbRows"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/background.js?v=8"></script>
+  <script src="assets/js/api.js?v=8"></script>
+  <script src="assets/js/auth.js?v=8"></script>
+  <script src="assets/js/leaderboard.js?v=8"></script>
+</body>
+</html>

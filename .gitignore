@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# SQLite WAL / SHM (tracked db stays in repo)
+*.db-shm
+*.db-wal
+
+# Logs & junk
+*.log
+grok_logs.csv
+From Klickpin.com-*
+
+# Env / secrets
+.env
+.env.*

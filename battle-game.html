@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Battle — QuizFlow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C5CFC'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EQ%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/quizflow.css?v=9" />
+  <link rel="stylesheet" href="assets/css/battle.css?v=1" />
+</head>
+<body class="battle-body">
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="battle-bar">
+    <a class="battle-bar-brand" href="dashboard.html">
+      <span class="brand-mark">Q</span> QuizFlow
+    </a>
+    <span class="battle-bar-subject" id="barSubject">C++ OOP Battle</span>
+    <div class="battle-bar-right">
+      <span class="bar-q" id="barQ">Q 1 / 10</span>
+      <div class="bar-timer" id="barTimer">
+        <svg class="timer-ring" width="38" height="38" viewBox="0 0 38 38">
+          <circle cx="19" cy="19" r="16" fill="none" stroke="rgba(124,92,252,.15)" stroke-width="3"/>
+          <circle class="timer-arc" id="timerArc" cx="19" cy="19" r="16" fill="none" stroke="url(#timerGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="100.53" stroke-dashoffset="0" transform="rotate(-90 19 19)"/>
+          <defs><linearGradient id="timerGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7C5CFC"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+        </svg>
+        <span class="timer-num" id="timerNum">30</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="battle-main">
+
+    <!-- ===== PLAYER HEADS ===== -->
+    <div class="bh-row">
+      <div class="bh-card glass-card" id="p1Card">
+        <div class="bh-left">
+          <div class="bh-avatar" id="p1Avatar">P1</div>
+          <div class="bh-info">
+            <span class="bh-name" id="p1Name">Player 1</span>
+            <span class="bh-status online"><span class="status-dot-sm"></span> Online</span>
+          </div>
+        </div>
+        <div class="bh-score" id="p1Score">0</div>
+      </div>
+
+      <div class="bh-vs">
+        <span>VS</span>
+        <div class="bh-vs-pulse"></div>
+      </div>
+
+      <div class="bh-card glass-card" id="p2Card">
+        <div class="bh-left">
+          <div class="bh-avatar" id="p2Avatar">P2</div>
+          <div class="bh-info">
+            <span class="bh-name" id="p2Name">Player 2</span>
+            <span class="bh-status online"><span class="status-dot-sm"></span> Online</span>
+          </div>
+        </div>
+        <div class="bh-score" id="p2Score">0</div>
+      </div>
+    </div>
+
+    <!-- ===== OPPONENT STATUS ===== -->
+    <div class="opp-status hidden" id="oppStatus">
+      <span class="opp-status-dot"></span>
+      <span id="oppStatusText">Opponent is answering...</span>
+    </div>
+
+    <!-- ===== QUESTION CARD ===== -->
+    <div class="q-card glass-card" id="qCard">
+      <div class="q-head">
+        <span class="q-label" id="qLabel">QUESTION 01 / 10</span>
+        <span class="q-timer-mobile" id="qTimerMobile">30</span>
+      </div>
+      <p class="q-text" id="qText">Loading question...</p>
+    </div>
+
+    <!-- ===== ANSWERS ===== -->
+    <div class="ans-grid" id="ansGrid">
+      <button class="ans-card glass-card" data-idx="0">
+        <span class="ans-letter">A</span>
+        <span class="ans-text" id="ans0">—</span>
+        <span class="ans-result"></span>
+      </button>
+      <button class="ans-card glass-card" data-idx="1">
+        <span class="ans-letter">B</span>
+        <span class="ans-text" id="ans1">—</span>
+        <span class="ans-result"></span>
+      </button>
+      <button class="ans-card glass-card" data-idx="2">
+        <span class="ans-letter">C</span>
+        <span class="ans-text" id="ans2">—</span>
+        <span class="ans-result"></span>
+      </button>
+      <button class="ans-card glass-card" data-idx="3">
+        <span class="ans-letter">D</span>
+        <span class="ans-text" id="ans3">—</span>
+        <span class="ans-result"></span>
+      </button>
+    </div>
+
+    <!-- ===== ANSWER FEEDBACK ===== -->
+    <div class="ans-feedback hidden" id="ansFeedback">
+      <span class="ans-fb-icon" id="ansFbIcon"></span>
+      <span class="ans-fb-text" id="ansFbText"></span>
+    </div>
+
+    <!-- ===== COUNTDOWN OVERLAY ===== -->
+    <div class="countdown-overlay hidden" id="countdownOverlay">
+      <div class="countdown-num" id="countdownNum">3</div>
+    </div>
+
+    <!-- ===== SCORE POP ===== -->
+    <div class="score-pop hidden" id="scorePop">
+      <span class="score-pop-text" id="scorePopText">+1</span>
+    </div>
+
+    <!-- ===== DISCONNECT OVERLAY ===== -->
+    <div class="disconnect-overlay hidden" id="disconnectOverlay">
+      <div class="disconnect-card glass-card">
+        <h2 id="disconnectTitle">Opponent Disconnected</h2>
+        <p id="disconnectMsg">Your opponent has left the battle.</p>
+        <div class="disconnect-btns">
+          <button class="btn btn-primary" id="claimVictoryBtn">Claim Victory</button>
+          <button class="btn btn-ghost" id="backDashBtn">Back to Dashboard</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== RESULT OVERLAY ===== -->
+    <div class="result-overlay hidden" id="resultOverlay">
+      <div class="result-card glass-card">
+        <div class="result-badge" id="resultBadge">🏆</div>
+        <h1 class="result-title" id="resultTitle">VICTORY!</h1>
+        <p class="result-sub" id="resultSub">You won the battle!</p>
+
+        <div class="result-players">
+          <div class="result-player">
+            <div class="rp-avatar" id="rp1Avatar">P1</div>
+            <span class="rp-name" id="rp1Name">You</span>
+            <span class="rp-score" id="rp1Score">0</span>
+            <span class="rp-label">POINTS</span>
+          </div>
+          <div class="result-vs">VS</div>
+          <div class="result-player">
+            <div class="rp-avatar" id="rp2Avatar">P2</div>
+            <span class="rp-name" id="rp2Name">Opponent</span>
+            <span class="rp-score" id="rp2Score">0</span>
+            <span class="rp-label">POINTS</span>
+          </div>
+        </div>
+
+        <div class="result-stats" id="resultStats">
+          <div class="rs-item"><b id="rsQ">10</b><span>Questions</span></div>
+          <div class="rs-item"><b id="rsCorrect">0</b><span>Correct</span></div>
+          <div class="rs-item"><b id="rsAcc">0%</b><span>Accuracy</span></div>
+          <div class="rs-item"><b id="rsFast">0s</b><span>Fastest</span></div>
+        </div>
+
+        <div class="result-btns">
+          <button class="btn btn-primary btn-lg" id="rematchBtn">PLAY AGAIN</button>
+          <button class="btn btn-ghost" id="resultDashBtn">BACK TO DASHBOARD</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="assets/js/background.js?v=9"></script>
+  <script src="assets/js/api.js?v=9"></script>
+  <script src="assets/js/auth.js?v=9"></script>
+  <script src="assets/js/config.js?v=1"></script>
+  <script src="assets/js/battle-game.js?v=1"></script>
+</body>
+</html>

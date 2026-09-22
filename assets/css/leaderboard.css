@@ -1,0 +1,140 @@
+/* ============================================================
+   QuizFlow — Leaderboard page
+   Top-3 podium, full ranking table, highlights current user.
+   ============================================================ */
+
+.lb-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.6rem 1.3rem 4rem;
+  animation: fade-up .5s var(--ease) both;
+}
+
+/* ---------- Podium ---------- */
+.podium { display: flex; align-items: flex-end; justify-content: center; gap: 1rem; padding: 1.5rem 1rem 0; }
+.podium-card {
+  flex: 1;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
+  padding: 1.4rem 1rem 1.6rem;
+  text-align: center;
+  animation: rise .7s var(--ease) both;
+}
+.podium-card.rank-1 { animation-delay: 0s; }
+.podium-card.rank-2 { animation-delay: .12s; }
+.podium-card.rank-3 { animation-delay: .24s; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+
+.pod-rank {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-400);
+  letter-spacing: .14em;
+}
+.podium-card.rank-1 .pod-rank { color: #fbbf24; text-shadow: 0 0 18px rgba(251, 191, 36, 0.7); }
+.podium-card.rank-2 .pod-rank { color: #cbd5e1; text-shadow: 0 0 18px rgba(203, 213, 225, 0.5); }
+.podium-card.rank-3 .pod-rank { color: #fb923c; text-shadow: 0 0 18px rgba(251, 146, 60, 0.6); }
+
+.pod-avatar {
+  width: 64px; height: 64px;
+  display: grid; place-items: center;
+  border-radius: 20px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+  background: var(--gradient-main);
+  box-shadow: var(--glow-primary);
+}
+.podium-card.rank-1 .pod-avatar {
+  width: 76px; height: 76px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  box-shadow: 0 0 26px rgba(251, 191, 36, 0.55), 0 0 60px rgba(251, 191, 36, 0.2);
+}
+.podium-card.rank-2 .pod-avatar {
+  background: linear-gradient(135deg, #64748b, #94a3b8);
+  box-shadow: 0 0 20px rgba(148, 163, 184, 0.4);
+}
+.podium-card.rank-3 .pod-avatar {
+  background: linear-gradient(135deg, #c2410c, #fb923c);
+  box-shadow: 0 0 20px rgba(251, 146, 60, 0.4);
+}
+
+.pod-name { font-weight: 700; color: var(--text-100); font-size: .95rem; }
+.pod-meta { font-size: .78rem; color: var(--text-500); }
+.pod-points {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #fff;
+  background: rgba(124, 92, 252, 0.14);
+  border: 1px solid rgba(124, 92, 252, 0.35);
+  border-radius: var(--radius-pill);
+  padding: .35rem 1rem;
+  box-shadow: 0 0 18px rgba(124, 92, 252, 0.2);
+}
+.podium-card.rank-1 .pod-points { background: rgba(251, 191, 36, 0.14); border-color: rgba(251, 191, 36, 0.4); box-shadow: 0 0 18px rgba(251, 191, 36, 0.25); color: #fbbf24; }
+
+/* ---------- Table ---------- */
+.lb-card { margin-top: 1.6rem; overflow: hidden; }
+.lb-head, .lb-row {
+  display: grid;
+  grid-template-columns: 64px 1fr 110px 90px 110px;
+  align-items: center;
+  gap: .6rem;
+  padding: .85rem 1.4rem;
+}
+.lb-head {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--text-500);
+  border-bottom: 1px solid var(--border);
+  background: rgba(10, 16, 34, 0.6);
+}
+.lb-row {
+  font-size: .92rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+  transition: background-color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.lb-row:last-child { border-bottom: none; }
+.lb-row:hover { background: rgba(124, 92, 252, 0.05); }
+.lb-row.me { background: rgba(124, 92, 252, 0.1); border-left: 3px solid var(--purple); }
+.lb-rank { display: flex; align-items: center; gap: .55rem; font-weight: 700; color: var(--text-300); font-variant-numeric: tabular-nums; }
+.lb-medal { font-size: 1.05rem; }
+.lb-user { display: flex; align-items: center; gap: .8rem; min-width: 0; }
+.lb-avatar {
+  flex: none;
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  font-size: .8rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--gradient-main);
+}
+.lb-name { font-weight: 600; color: var(--text-100); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-name .you-tag { font-size: .68rem; color: var(--cyan); margin-left: .4rem; letter-spacing: .06em; }
+.lb-score { color: var(--text-300); font-variant-numeric: tabular-nums; }
+.lb-quizzes { color: var(--text-400); font-variant-numeric: tabular-nums; }
+.lb-points { font-family: var(--font-display); font-weight: 700; color: var(--purple); text-shadow: 0 0 12px rgba(124, 92, 252, 0.4); font-variant-numeric: tabular-nums; }
+
+/* ---------- Loading ---------- */
+.lb-loading { text-align: center; padding: 4rem 1rem; color: var(--text-400); }
+.lb-empty { text-align: center; padding: 4rem 1rem; color: var(--text-400); }
+.lb-empty .big { font-size: 2.6rem; margin-bottom: .6rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 680px) {
+  .lb-head, .lb-row { grid-template-columns: 44px 1fr 80px 64px; padding: .75rem 1rem; }
+  .lb-head .col-points, .lb-row .lb-points { display: none; }
+  .podium { gap: .5rem; padding: 1rem .4rem 0; }
+  .pod-avatar, .podium-card.rank-1 .pod-avatar { width: 56px; height: 56px; font-size: 1.05rem; }
+  .podium-card { padding: 1.1rem .6rem 1.3rem; }
+}

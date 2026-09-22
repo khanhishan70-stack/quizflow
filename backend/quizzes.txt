@@ -1,0 +1,30 @@
+Q|1|Digital Techniques and Microprocessor (DTM)|Diploma IT|10|5
+#|Which number system is used inside digital electronic circuits?|Decimal|Binary|Octal|Hexadecimal|1|Digital circuits use only 0 and 1 (Binary).
+#|Which logic gate produces an output of 1 only when all inputs are 1?|OR|AND|NOT|XOR|1|AND gate is high only when every input is high.
+#|What does ALU stand for?|Arithmetic Logic Unit|Advanced Logic Unit|Arithmetic Last Unit|Analog Logic Unit|0|ALU performs arithmetic and logical operations.
+#|The Intel 8085 microprocessor is a:|16-bit processor|32-bit processor|8-bit processor|4-bit processor|2|8085 is an 8-bit microprocessor.
+#|Which of these is a valid octal number?|235|189|3A5|24B|0|Octal uses digits 0 to 7 only.
+Q|2|Data Structures using C (DSU)|Diploma IT|10|5
+#|Which data structure works on the LIFO principle?|Queue|Stack|Tree|Graph|1|Stack = Last In First Out.
+#|Which data structure works on the FIFO principle?|Stack|Queue|Array|Linked List|1|Queue = First In First Out.
+#|Which data structure stores elements in key-value pairs?|Queue|Stack|Hash Table|Array|2|Hash tables map keys to values.
+#|The time complexity of binary search in the worst case is:|O(n)|O(log n)|O(n log n)|O(1)|1|Binary search halves the search space each step.
+#|In C, array indexing starts from:|1|0|-1|2|1|C arrays are zero-indexed.
+Q|3|Object Oriented Programming using C++ (OOP)|Diploma IT|10|5
+#|Which OOP concept allows a class to acquire properties from another class?|Encapsulation|Inheritance|Abstraction|Polymorphism|1|Inheritance lets a child class reuse a parent class.
+#|Which OOP feature bundles data and the methods that operate on it?|Inheritance|Encapsulation|Overloading|Recursion|1|Encapsulation binds data and functions together.
+#|Which of the following is NOT an object-oriented language?|C++|Java|C|Python|2|C is a procedural language.
+#|Which keyword is used to define a class in C++?|struct|class|object|public|1|class is the keyword for a class.
+#|A constructor in C++ is used to:|Destroy an object|Initialize an object|Copy an object|Delete an object|1|Constructors initialize objects.
+Q|4|Applied Multimedia Techniques (AMT)|Diploma IT|10|5
+#|Which of the following is a raster image format?|BMP|WAV|MP3|TXT|0|BMP stores images as a grid of pixels.
+#|Which file format is commonly used for audio?|JPEG|MP3|PNG|GIF|1|MP3 is a compressed audio format.
+#|What does GIF stand for?|Graphics Interchange Format|Graphical Image File|General Image Format|Great Internet File|0|GIF is a bitmap image format.
+#|Multimedia is a combination of text, graphics, audio, video and:|Animation|Keyboard|Processor|Compiler|0|Animation is part of multimedia.
+#|Which application is used for editing videos?|MS Word|Adobe Premiere Pro|Notepad|Calculator|1|Adobe Premiere Pro is a video editor.
+Q|5|Essence of Indian Constitution (EIC)|Diploma IT|8|5
+#|Who is known as the 'Father of the Indian Constitution'?|Mahatma Gandhi|Jawaharlal Nehru|Dr. B. R. Ambedkar|Sardar Patel|2|Dr. B. R. Ambedkar was the Chairman of the Drafting Committee.
+#|The Indian Constitution was adopted on:|15 August 1947|26 January 1950|26 November 1949|2 October 1950|2|Adopted on 26 November 1949, enforced on 26 January 1950.
+#|How many Fundamental Rights are guaranteed by the Indian Constitution?|5|6|7|8|1|There are six Fundamental Rights.
+#|The Preamble of the Indian Constitution begins with the words:|We, the Parliament of India|We, the People of India|We, the Citizens of India|We, the Nation of India|1|The Preamble starts with 'We, the People of India'.
+#|Right to Equality is guaranteed under which Article?|Article 14|Article 19|Article 21|Article 32|0|Article 14 guarantees equality before law.

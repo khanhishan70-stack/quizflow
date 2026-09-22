@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz — QuizFlow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C5CFC'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EQ%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/quizflow.css?v=8" />
+  <link rel="stylesheet" href="assets/css/quiz.css?v=8" />
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="quiz-top">
+    <div class="quiz-top-inner">
+      <a class="nav-brand" href="dashboard.html">
+        <span class="brand-mark">Q</span>
+        QuizFlow
+      </a>
+      <div class="quiz-title-wrap">
+        <span class="quiz-title" id="quizTitle">Loading quiz…</span>
+        <span class="quiz-cat" id="quizCat">—</span>
+      </div>
+      <div class="quiz-hud">
+        <div class="quiz-counter" id="qCount">Question 1 / 1</div>
+        <div class="quiz-timer" id="quizTimer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span id="timerText">--:--</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="quiz-main">
+    <div class="quiz-loading" id="quizLoading">
+      <div class="spinner" style="margin:0 auto; border-color: rgba(124,92,252,.3); border-top-color:#fff;"></div>
+      <p class="mt-2">Loading quiz questions…</p>
+    </div>
+
+    <!-- Quiz stage (hidden until loaded) -->
+    <div class="quiz-stage hidden" id="quizStage">
+      <div class="quiz-card glass-card">
+        <div class="q-head">
+          <span class="q-num" id="qNum">Q1</span>
+          <h2 id="qText"></h2>
+        </div>
+        <div class="quiz-options" id="quizOptions"></div>
+      </div>
+
+      <div class="quiz-progress-row">
+        <div class="progress-dots" id="progressDots"></div>
+        <div class="quiz-nav">
+          <button type="button" class="btn btn-ghost" id="prevBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            Previous
+          </button>
+          <button type="button" class="btn btn-ghost" id="nextBtn">
+            Next
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <button type="button" class="btn btn-primary hidden" id="submitBtn">Submit Quiz</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/background.js?v=8"></script>
+  <script src="assets/js/api.js?v=8"></script>
+  <script src="assets/js/auth.js?v=8"></script>
+  <script src="assets/js/quiz.js?v=8"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create account — QuizFlow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C5CFC'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EQ%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/quizflow.css?v=8" />
+  <link rel="stylesheet" href="assets/css/auth.css?v=8" />
+</head>
+<body>
+
+  <main class="auth-shell">
+
+    <!-- Branding panel -->
+    <aside class="auth-brand">
+      <video class="auth-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="assets/videos/login-bg.mp4?v=8" type="video/mp4" />
+      </video>
+
+      <a class="brand" href="index.html">
+        <span class="brand-mark">Q</span>
+        QuizFlow
+      </a>
+
+      <div class="auth-brand-mid">
+        <h1>Start your<br /><span class="grad">learning journey.</span></h1>
+        <p>Create a free account and unlock interactive quizzes, progress tracking and friendly competition.</p>
+
+        <div class="auth-holo" aria-hidden="true">
+          <div class="holo-ring r1"><span class="holo-dot"></span></div>
+          <div class="holo-ring r2"><span class="holo-dot"></span></div>
+          <div class="holo-ring r3"><span class="holo-dot"></span></div>
+          <div class="holo-core">⚡</div>
+        </div>
+      </div>
+
+      <p class="auth-brand-foot">The future of learning <span class="dot">·</span> Powered by a C++ OOP engine</p>
+    </aside>
+
+    <!-- Form panel -->
+    <section class="auth-form">
+      <div class="auth-card glass-card gborder">
+        <h2>Create account</h2>
+        <p class="subtitle">Join QuizFlow and start learning in minutes</p>
+
+        <div class="alert alert-error" id="regAlert" role="alert">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="regAlertText"></span>
+        </div>
+
+        <form id="regForm" novalidate>
+          <div class="field" data-field="name">
+            <label for="name">Full name</label>
+            <div class="input-wrap">
+              <span class="field-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <input class="input input-icon" type="text" id="name" name="name" placeholder="e.g. Ayesha Khan" autocomplete="name" required />
+            </div>
+            <p class="error-msg"><span></span></p>
+          </div>
+
+          <div class="field" data-field="email">
+            <label for="email">Email address</label>
+            <div class="input-wrap">
+              <span class="field-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              </span>
+              <input class="input input-icon" type="email" id="email" name="email" placeholder="you@student.edu" autocomplete="email" required />
+            </div>
+            <p class="error-msg"><span></span></p>
+          </div>
+
+          <div class="field" data-field="password">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <span class="field-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input class="input input-icon" type="password" id="password" name="password" placeholder="At least 6 characters" autocomplete="new-password" minlength="6" required />
+              <button type="button" class="toggle-password" aria-label="Show password">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c6.5 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3.5 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+              </button>
+            </div>
+            <p class="error-msg"><span></span></p>
+          </div>
+
+          <div class="field" data-field="confirm">
+            <label for="confirm">Confirm password</label>
+            <div class="input-wrap">
+              <span class="field-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input class="input input-icon" type="password" id="confirm" name="confirm" placeholder="Re-enter your password" autocomplete="new-password" required />
+            </div>
+            <p class="error-msg"><span></span></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg auth-submit" id="regBtn">
+            <span class="btn-label">Create account</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span class="spinner" style="display:none"></span>
+          </button>
+        </form>
+
+        <p class="auth-foot">
+          Already have an account?
+          <a href="login.html">Sign in</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/background.js?v=8"></script>
+  <script src="assets/js/api.js?v=8"></script>
+  <script src="assets/js/auth.js?v=8"></script>
+  <script src="assets/js/register.js?v=8"></script>
+</body>
+</html>
