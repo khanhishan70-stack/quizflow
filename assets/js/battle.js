@@ -127,6 +127,10 @@
         showOpponentJoined(msg);
         break;
 
+      case 'OPPONENT_LEFT':
+        resetOpponent();
+        break;
+
       case 'PLAYER_READY':
         handleReady(msg);
         break;
@@ -199,6 +203,17 @@
       '<span class="room-p-avatar">' + (msg.opponentName || 'P2').charAt(0).toUpperCase() + '</span>' +
       '<span>' + (msg.opponentName || 'Opponent') + '</span>' +
       '<span class="room-p-status">●</span>';
+  }
+
+  function resetOpponent() {
+    var p2Card = document.getElementById('roomP2');
+    p2Card.classList.add('empty');
+    p2Card.innerHTML =
+      '<span class="room-p-avatar">?</span>' +
+      '<span>Waiting...</span>' +
+      '<span class="room-p-status off">○</span>';
+    oppReady = false;
+    document.getElementById('roomP2Ready').classList.remove('active');
   }
   document.getElementById('joinRoomBtn').addEventListener('click', function () {
     showView('join');

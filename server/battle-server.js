@@ -429,6 +429,15 @@ function joinRoom(ws, msg) {
     return;
   }
 
+  // Host left → room is dead, clear it
+  if (!room.player1 || !room.player1.ws) {
+    battles.delete(battleId);
+    roomCodes.delete(code);
+    if (room.player2) playerBattle.delete(room.player2.id);
+    send(ws, { type: 'ERROR', message: 'Room expired.' });
+    return;
+  }
+
   if (room.player2) {
     send(ws, { type: 'ERROR', message: 'Room is full.' });
     return;
@@ -630,6 +639,29 @@ function handleDisconnect(playerId) {
 
   const room = battles.get(battleId);
   if (!room) return;
+
+  // Battle not started yet → clean up so room codes are reusable
+  if (room.state === 'WAITING' || room.state === 'READY') {
+    if (room.player1 && room.player1.id === playerId) {
+      // Creator left: remove the room entirely
+      battles.delete(battleId);
+      if (room.roomCode) roomCodes.delete(room.roomCode);
+      playerBattle.delete(playerId);
+      if (room.player2 && room.player2.ws) {
+        send(room.player2.ws, { type: 'ERROR', message: 'The host left the room.' });
+        playerBattle.delete(room.player2.id);
+      }
+    } else if (room.player2 && room.player2.id === playerId) {
+      // Joiner left: free the slot, go back to waiting
+      room.player2 = null;
+      room.state = 'WAITING';
+      playerBattle.delete(playerId);
+      if (room.player1 && room.player1.ws) {
+        send(room.player1.ws, { type: 'OPPONENT_LEFT' });
+      }
+    }
+    return;
+  }
 
   const player = room.getPlayer(playerId);
   if (player) player.ws = null;
