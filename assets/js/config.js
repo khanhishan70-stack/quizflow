@@ -10,5 +10,5 @@
    ============================================================ */
 
 window.QuizFlowConfig = {
-  BATTLE_SERVER: ''
+  BATTLE_SERVER: 'wss://white-several-descriptions-effective.trycloudflare.com'
 };
