@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
     "better-sqlite3": "^13.0.3",
     "ws": "^8.21.3"

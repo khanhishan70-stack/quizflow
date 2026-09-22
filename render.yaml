@@ -7,5 +7,5 @@ services:
     startCommand: node server/battle-server.js
     autoDeploy: true
     envVars:
-      - key: NODE_ENV
-        value: production
+      - key: NODE_VERSION
+        value: "22"
