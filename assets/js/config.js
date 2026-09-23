@@ -1,14 +1,14 @@
-/* ============================================================
-   QuizFlow — Deployment config
+﻿/* ============================================================
+   QuizFlow â€” Deployment config
    Set BATTLE_SERVER to your live WebSocket server URL after
    deploying it (e.g. Render free tier).
 
-     ''  →  use local server  ws://localhost:9090
-     'wss://quizflow-battle.onrender.com'  →  live server
+     ''  â†’  use local server  ws://localhost:9090
+     'wss://quizflow-battle.onrender.com'  â†’  live server
 
    Leave empty when running the project locally.
    ============================================================ */
 
 window.QuizFlowConfig = {
-  BATTLE_SERVER: 'wss://prompt-arrives-pat-unions.trycloudflare.com'
+  BATTLE_SERVER: 'wss://recognized-demanding-randy-ricky.trycloudflare.com'
 };
