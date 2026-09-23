@@ -124,7 +124,11 @@
         break;
 
       case 'OPPONENT_JOINED':
-        showOpponentJoined(msg);
+        if (msg.roomCode) {
+          showJoinedRoom(msg);
+        } else {
+          showOpponentJoined(msg);
+        }
         break;
 
       case 'OPPONENT_LEFT':
@@ -177,11 +181,43 @@
     roomCode = code;
     iAmReady = false;
     oppReady = false;
+    mySlot = 'roomP1Ready';
+    oppSlot = 'roomP2Ready';
     var rb = document.getElementById('roomReadyBtn');
     rb.textContent = 'READY';
     rb.disabled = false;
     document.getElementById('roomP1Ready').classList.remove('active');
     document.getElementById('roomP2Ready').classList.remove('active');
+  }
+
+  function showJoinedRoom(msg) {
+    iAmReady = false;
+    oppReady = false;
+    mySlot = 'roomP2Ready';
+    oppSlot = 'roomP1Ready';
+    var rb = document.getElementById('roomReadyBtn');
+    rb.textContent = 'READY';
+    rb.disabled = false;
+    document.getElementById('roomP1Ready').classList.remove('active');
+    document.getElementById('roomP2Ready').classList.remove('active');
+
+    showView('room');
+    document.getElementById('roomCode').textContent = msg.roomCode;
+    roomCode = msg.roomCode;
+
+    document.getElementById('roomP1').classList.remove('empty');
+    document.getElementById('roomP1Name').textContent = msg.opponentName || 'Host';
+    document.getElementById('roomP1').querySelector('.room-p-avatar').textContent =
+      (msg.opponentName || 'H').charAt(0).toUpperCase();
+
+    var p2 = document.getElementById('roomP2');
+    p2.classList.remove('empty');
+    p2.innerHTML =
+      '<span class="room-p-avatar">' + (session.name || 'P2').charAt(0).toUpperCase() + '</span>' +
+      '<span>' + session.name + '</span>' +
+      '<span class="room-p-status">●</span>';
+
+    document.getElementById('roomP1Ready').querySelector('.ready-dot').parentNode.lastChild.textContent = ' Opponent';
   }
 
   document.getElementById('copyCodeBtn').addEventListener('click', function () {
@@ -247,6 +283,8 @@
   /* ---------- Ready ---------- */
   var iAmReady = false;
   var oppReady = false;
+  var mySlot = 'roomP1Ready';
+  var oppSlot = 'roomP2Ready';
 
   document.getElementById('readyBtn').addEventListener('click', function () {
     if (iAmReady) return;
@@ -262,7 +300,7 @@
     iAmReady = true;
     document.getElementById('roomReadyBtn').textContent = 'READY ✓';
     document.getElementById('roomReadyBtn').disabled = true;
-    document.getElementById('roomP1Ready').classList.add('active');
+    document.getElementById(mySlot).classList.add('active');
     send({ type: 'PLAYER_READY', playerId: session.id });
   });
 
@@ -270,7 +308,7 @@
     if (msg.playerId !== session.id) {
       oppReady = true;
       document.getElementById('p2Ready').classList.add('active');
-      document.getElementById('roomP2Ready').classList.add('active');
+      document.getElementById(oppSlot).classList.add('active');
     }
   }
 
