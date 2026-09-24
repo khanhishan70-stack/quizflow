@@ -67,6 +67,14 @@ class BattleRoom {
     this.p2CorrectCount = 0;
     this.p1FastestCorrect = 999;
     this.p2FastestCorrect = 999;
+    this.disconnTimers = {}; // playerId -> timeout (grace period for rejoin)
+  }
+
+  clearDisconnTimer(playerId) {
+    if (this.disconnTimers[playerId]) {
+      clearTimeout(this.disconnTimers[playerId]);
+      delete this.disconnTimers[playerId];
+    }
   }
 
   getPlayer(id) {
@@ -468,6 +476,12 @@ function joinBattle(ws, msg) {
   const player = room.getPlayer(playerId);
   if (player) {
     player.ws = ws;
+    // Cancel any pending "opponent left" announcement — they're back
+    room.clearDisconnTimer(playerId);
+    const opponent = room.getOpponent(playerId);
+    if (opponent && opponent.ws) {
+      send(opponent.ws, { type: 'OPPONENT_RECONNECTED' });
+    }
     send(ws, {
       type: 'BATTLE_INFO',
       totalQuestions: room.totalQuestions,
@@ -666,10 +680,20 @@ function handleDisconnect(playerId) {
   const player = room.getPlayer(playerId);
   if (player) player.ws = null;
 
-  const opponent = room.getOpponent(playerId);
-  if (opponent && opponent.ws) {
-    send(opponent.ws, { type: 'OPPONENT_DISCONNECTED' });
-  }
+  // Grace period: give the player a few seconds to reconnect
+  // (the browser briefly closes the socket when navigating pages).
+  const GRACE_MS = 12000;
+  room.clearDisconnTimer(playerId);
+  room.disconnTimers[playerId] = setTimeout(() => {
+    delete room.disconnTimers[playerId];
+    if (room.state === 'COMPLETED') return;
+
+    // Player never came back → declare the disconnect to the opponent
+    const opponent = room.getOpponent(playerId);
+    if (opponent && opponent.ws) {
+      send(opponent.ws, { type: 'OPPONENT_DISCONNECTED' });
+    }
+  }, GRACE_MS);
 }
 
 // ============================================================
