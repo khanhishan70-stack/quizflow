@@ -10,5 +10,5 @@
    ============================================================ */
 
 window.QuizFlowConfig = {
-  BATTLE_SERVER: 'wss://recognized-demanding-randy-ricky.trycloudflare.com'
+  BATTLE_SERVER: 'wss://phil-compliant-answering-upgrading.trycloudflare.com'
 };
